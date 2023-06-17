@@ -1,0 +1,70 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+#registertop{
+    background-color: transparent;
+    padding-top: 40px;
+}
+#registermid{
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: white;
+    width: 800px;
+    height: fit-content;
+    border-radius: 8px;
+}
+#innerbox{
+    width: 100%;
+    height: 100%;
+    padding: 50px 15px;
+    background-color: transparent;
+}
+.deliver1{
+    border-bottom: 1px solid #00000005;
+}
+.formitem{
+    display: flex;
+    margin: 20px 185px;
+}
+.must{
+    color:red;
+}
+.centerbox{
+    margin: 0 auto;
+}
+.formp{
+    width: 90px;
+    display: flex;
+}
+.btn1{
+    margin: 0 auto;
+    background: #ffa00a;
+    border: 1px solid #ffb33b;
+    color: #FFF;
+    font-size: 29px;
+    padding: 13px 91px;
+    font-weight: bolder;
+}
+.choosebox{
+    padding: 10px 20px;
+    color: black;
+    font-weight: bolder;
+
+}
+.switched{
+    padding: 10px 20px;
+    color: black;
+    font-weight: bolder;
+    border-bottom: 1px solid orange;
+}
+.default{
+    padding: 10px 20px;
+    color: black;
+    font-weight: bolder;
+}

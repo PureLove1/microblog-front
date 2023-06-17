@@ -1,0 +1,24 @@
+.tip {
+    /*提示性文字*/
+    color: #C0C4CC;
+    font-size: 12px;
+}
+.text{
+    color:#303133
+}
+.basicblack{
+    color:#000000;
+}
+
+.in-a-line{
+    display: flex;
+}
+
+.in-a-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.middle{
+    margin: 0 auto;
+}
