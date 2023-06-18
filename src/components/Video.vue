@@ -37,7 +37,6 @@ export default {
     watch: {
         $route: {
             handler(newVal, oldVal) {
-                console.log(newVal.path)
                 if (newVal.path == '/video') {
                     this.fetchVideo();
                 } else if (newVal.path == '/fvideo') {
@@ -49,7 +48,6 @@ export default {
         }
     },
     created() {
-        console.log(this.$route.path)
         if (this.$route.path == '/video') {
             this.fetchVideo();
         } else if (this.$route.path == '/fvideo') {
@@ -77,7 +75,6 @@ export default {
 
                             }
                         }
-                        console.log(that.videos)
                     }
                 }
             )
@@ -100,7 +97,6 @@ export default {
 
                             }
                         }
-                        console.log(that.videos)
                     }
                 }
             )

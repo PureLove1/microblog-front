@@ -34,7 +34,6 @@ export default {
         this.userId = this.$store.state.userId;
     },
     afterMounted() {
-        console.log('afterMounted()调用')
     },
     methods: {
     }

@@ -250,7 +250,6 @@ export default {
             for (let match of str) {//mactch[0]就是匹配的值
                 for (let i = 0; i < this.emojis.length; i++) {
                     if (this.emojis[i].name == match[0] + '') {
-                        console.log("匹配到字符");
                         let url = "<img src='" + this.emojis[i].path + "' style='width: 20px; height: 20px;'>";
                         a=a.replace(match[0], url)
                     }
@@ -376,7 +375,6 @@ export default {
 
         },
         fetchAllBlogs: function () {
-            console.log('fetchAllBlogs')
             this.loadingBlog = true;
             var that = this;
             //splice(start,deleteCount,…value)：从start开始替换deleteCount个元素，后面跟上要替换的元素。
@@ -403,7 +401,6 @@ export default {
             );
         },
         fetchUserFollowBlogs: function () {
-            console.log('查询用户关注的人发布的博客')
             this.loadingBlog = true;
             var that = this;
             //splice(start,deleteCount,…value)：从start开始替换deleteCount个元素，后面跟上要替换的元素。

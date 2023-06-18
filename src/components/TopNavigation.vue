@@ -226,8 +226,6 @@ export default {
           document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
         }
       }
-      console.log('已清除');
-      console.log(document.cookie)
       this.$store.commit('clearUser');
       this.$router.replace('/login');
     },
@@ -262,7 +260,6 @@ export default {
       this.$router.push('/set/index')
     },
     searchWeibo() {
-      console.log(this.query)
       this.stopSearch();
       this.storeHistory();
       this.$router.push('/search?q=' + this.query);

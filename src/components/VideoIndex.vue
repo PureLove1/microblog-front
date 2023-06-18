@@ -46,18 +46,6 @@ export default {
         }
     },
     created: function () {
-        var that = this;
-        this.$http.get('/login/getToken').then(res => {
-            if (res.result) {
-                that.$store.commit('setToken', res.data.token);
-                that.$store.commit('setUserId', res.data.userId);
-                that.$store.commit('setUsername', res.data.username);
-                that.$store.commit('setUserIconUrl', res.data.userIconUrl);
-            }
-        }).catch(err => {
-            console.log(err)
-        }
-        )
     },
     methods: {
         show() {

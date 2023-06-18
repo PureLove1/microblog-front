@@ -226,7 +226,6 @@ export default {
         }
     },
     created: function () {
-        console.log(this.id);
         this.loadingBlog = true;
         this.$nextTick(() => {
             that.loadingInstance = Loading.service({
@@ -264,10 +263,8 @@ export default {
         commentIsEmpty(value, event) {
             let eventTarget = event.currentTarget;
             let val = $(eventTarget).val();
-            console.log(val.trim())
             let result = val.trim().length > 0 ? false : true;
             this.$set(value, 'empty', result);
-            console.log(value)
         },
         like: function (value) {
             var blogId = value.id;
@@ -310,7 +307,7 @@ export default {
         unfoldComment: function (value) {
             var that = this;
             if (value.showComment == false) {
-                this.$http.get("/blogComments/" + value.id)
+                this.$http.get("/blogComment/" + value.id)
                     .then(function (res) {
                         if (res.result) {
                             value.blogComments = res.data;
@@ -333,12 +330,11 @@ export default {
         comment: function (value, event) {
             var curr = event.currentTarget; //获取触发事件的按钮
             var userComment = $(curr).parent().parent().prev().children().find(".comment_box_input").val();
-            console.log("用户评论" + userComment);
             var that = this;
-            this.$http.post("/blogComments", { "blogId": value.id, "content": userComment })
+            this.$http.post("/blogComment", { "blogId": value.id, "content": userComment })
                 .then(function (res) {
                     if (res.result) {
-                        that.$http.get("/blogComments/" + value.id)
+                        that.$http.get("/blogComment/" + value.id)
                             .then(res => {
                                 if (res.result) {
                                     value.blogComments = res.data;
@@ -364,7 +360,6 @@ export default {
             });
         },
         goBack() {
-            console.log('go back');
             this.$router.go(-1);
         }
     },

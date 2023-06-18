@@ -20,7 +20,6 @@ export default {
     props: ['options', 'blogId'],
     methods: {
         doCall: function (text, option, blogId) {
-            console.log(blogId)
             if (text == '删除') {
                 this.deleteBlog(option, blogId)
             }

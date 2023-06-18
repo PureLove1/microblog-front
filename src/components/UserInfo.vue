@@ -166,7 +166,6 @@ export default {
     },
     methods: {
         fetchData() {
-            console.log(this.id);
             var that = this;
             this.$http.get('/user/' + this.id).then(res => {
                 if (res.data) {
@@ -175,18 +174,15 @@ export default {
                     that.user = res.data;
                     that.user.createTime = newCreateTime;
                     that.user.birth = newBirth;
-                    console.log(that.user)
                 }
             }).catch(err => {
                 console.error(err);
             })
         },
         goBack() {
-            console.log('go back');
             this.$router.go(-1);
         },
         handleClick(tab, event) {
-            console.log(tab, event);
         }
     }
 }

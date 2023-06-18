@@ -130,7 +130,6 @@ export default {
             for (let match of str) {//mactch[0]就是匹配的值
                 for (let i = 0; i < this.emojis.length; i++) {
                     if (this.emojis[i].name == match[0] + '') {
-                        console.log("匹配到字符");
                         let url = "<img src='" + this.emojis[i].path + "' style='width: 20px; height: 20px;'>";
                         a=a.replace(match[0], url)
                     }

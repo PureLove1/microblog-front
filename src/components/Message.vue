@@ -147,13 +147,11 @@ export default {
         async init() {
             await this.$http.get("/follow/" + this.userId).then(res => {
                 if (res.result) {
-                    console.log(res);
                     this.chatList = res.data;
                 }
             }).catch(err => {
                 console.error(err);
             });
-            console.log(this.chatList);
             //创建webSocket对象
             ws = new WebSocket("ws://localhost:8080/microblog/chat/" + this.userId);
             //给ws绑定事件
@@ -166,8 +164,6 @@ export default {
             this.current.image = this.chatList[0].image;
             await this.$http.get("/message/history/" + this.userId + '/' + this.current.id).then(res => {
                 if (res.result) {
-                    console.log(res)
-
                     this.historyMessage = res.data;
                 }
             }).catch(err => {
@@ -175,38 +171,31 @@ export default {
             });
         },
         submit() {
-            console.log("函数触发");
             this.message.sender = this.userId;
             this.message.receiver = this.current.id;
             this.message.createTime = new Date();
-            console.log(this.message.content);
             this.historyMessage.push(JSON.parse(JSON.stringify(this.message)));
             ws.send(JSON.stringify(this.message));
             this.message.content = "";
             console.error(this.historyMessage);
         },
         onOpen() {
-            console.log('websocket链接打开')
         },
         onMessage(evt) {
             //获取服务端推送过来的消息
             var dataStr = evt.data;
             //将dataStr 转换为json对象
             var res = JSON.parse(dataStr);
-            console.log('消息推送')
             this.historyMessage.push(res);
         },
         onClose() {
-            console.log('websocket链接关闭')
         },
         changeCurrent(id, name, image) {
-            console.log('修改聊天对象');
             this.current.id = id;
             this.current.name = name;
             this.current.image = image;
             this.$http.get("/message/history/" + this.userId + '/' + this.current.id).then(res => {
                 if (res.result) {
-                    console.log(res)
                     this.historyMessage = res.data;
                 }
             }).catch(err => {

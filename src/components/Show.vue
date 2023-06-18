@@ -271,7 +271,7 @@ export default {
             var cur = $(event.currentTarget);
             let blogId = this.video.id;
             var that = this;
-            this.$http.get('/blogComments/' + blogId, { params: { way: way } })
+            this.$http.get('/blogComment/' + blogId, { params: { way: way } })
                 .then(res => {
                     if (res.result) {
                         that.video.blogComments = res.data;
@@ -292,22 +292,16 @@ export default {
             this.dialogFormVisible = true;
             //设置回复的人的名称
             this.form.target = comment.user.name;
-            console.log("回复了" + this.form.target);
             this.form.parentId = comment.id;
-            console.log("回复了评论id为" + this.form.parentId + "的评论");
             this.form.blogId = comment.blogId;
-            console.log("回复了id为" + this.form.blogId + "的博客");
         },
         openSubComment(child, comment) {
             //打开评论框
             this.dialogFormVisible = true;
             //设置回复的人的名称
             this.form.target = child.user.name;
-            console.log("回复了" + this.form.target);
             this.form.parentId = comment.id;
-            console.log("回复了评论id为" + this.form.parentId + "的评论");
             this.form.blogId = child.blogId;
-            console.log("回复了id为" + this.form.blogId + "的博客");
         },
         subComment() {
             var myForm = this.form;
@@ -318,17 +312,16 @@ export default {
             var that = this;
             this.dialogFormVisible = false;
             //添加评论
-            this.$http.post("/blogComments", {
+            this.$http.post("/blogComment", {
                 "blogId": blogId,
                 "parentId": parentId,
                 "content": content,
                 "target": target,
             }).then(function (res) {
                 if (res.result) {
-                    that.$http.get("/blogComments/" + blogId, { params: { 'way': that.way } })
+                    that.$http.get("/blogComment/" + blogId, { params: { 'way': that.way } })
                         .then(function (res) {
                             if (res.result) {
-                                console.log(res.data);
                                 value.blogComments = res.data;
                             }
                         })
@@ -338,11 +331,10 @@ export default {
                 }
                 else {
                     that.$message.error("出错啦");
-                    console.log(res);
                 }
             }).catch(function (err) {
                 that.$message.error("出错啦");
-                console.log(err);
+                console.error(err);
             });
         },
         commentLike(comment, liked) {
@@ -350,7 +342,7 @@ export default {
             let operate = !liked;
             var curr = comment;
             var that = this;
-            this.$http.post("/blogComments/like/" + commentId + '/' + operate)
+            this.$http.post("/blogComment/like/" + commentId + '/' + operate)
                 .then(res => {
                     if (res.result) {
                         curr.liked = !curr.liked;

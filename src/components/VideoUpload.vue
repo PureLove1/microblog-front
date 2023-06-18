@@ -108,11 +108,10 @@ export default {
             res => {
                 if (res.result) {
                     that.options = res.data;
-                    console.log(that.options[0])
                 }
             }
         ).catch(err=>{
-            console.log(err)
+            console.error(err)
         })
        
     },
@@ -144,13 +143,11 @@ export default {
             this.uploading = true
         },
         success(response, file, fileList) {
-            console.log('视频地址' + response.message);
             this.blog.urls = response.message;
             this.percentage = 100
         },
         headerSuccess(response, file, fileList) {
             this.blog.urls = this.blog.urls + ',' + response.message;
-            console.log(response.message);
         },
         customColorMethod(percentage) {
             if (percentage < 30) {
