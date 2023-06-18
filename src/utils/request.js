@@ -33,7 +33,6 @@ http.interceptors.request.use(config => {
 // 添加响应拦截器 可以对返回数据 或者 错误（token过期）做统一处理
 http.interceptors.response.use(resp => { // http状态以2xx或3xx开头，执行成功的回调
   // resp.data 直接返回给组件，目的是 让组件 拿到数据 之后 少写 一层 .data
-  console.log(resp.headers);
   if(resp.data.statusCode=='A0200'){
     if(confirm('您尚未登录，请登录后再试.点击确认按钮跳转到登录页')){
       router.replace({path: '/login?from=' + router.currentRoute.path});
@@ -45,8 +44,6 @@ http.interceptors.response.use(resp => { // http状态以2xx或3xx开头，执�
       return resp.data;
     };
   } else if(resp.headers.get('refreshtoken')&&resp.headers.get('authorization')){
-    console.log('刷新token='+resp.headers.get('refreshtoken'));
-    console.log('验证token='+resp.headers.get('authorization'));
     store.commit('setToken', resp.headers.get('authorization'));
     store.commit('setRefreshToken', resp.headers.get('refreshToken'));
   }
@@ -55,7 +52,6 @@ http.interceptors.response.use(resp => { // http状态以2xx或3xx开头，执�
   // 401 就是一个 典型 的 失败，表示 token 过期 或者 无效
   // token过期的解决办法，两种
   // 1. 重新登录
-  // console.log(router)//  '/layout/home'
   // 2. token续签（配合refresh_token解决）
   if (error.response.status === 401) {
     // 1. 清空 vuex 中 token

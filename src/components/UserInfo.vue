@@ -122,7 +122,11 @@ export default {
         return {
             size: 'small',
             activeName: 'second',
-            user: undefined,
+            user: {
+                name:'',
+                id:'',
+                fanNum:''
+            },
             allBlogs: [],
             loadingBlog: false
         }

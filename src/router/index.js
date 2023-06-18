@@ -39,10 +39,10 @@ export default new Router({
     },
     {
       path: '/index',
-      name: 'index',
       component: Index,
       children: [
         {
+          name: 'index',
           path: '',
           components: {
             left: LeftNav,
@@ -84,10 +84,10 @@ export default new Router({
     },
     {
       path: '/&video',
-      name: '&video',
       component: Index,
       children: [
         {
+          name: '&video',
           path: '',
           components: {
             left: LeftNav,
@@ -129,10 +129,10 @@ export default new Router({
     }, ,
     {
       path: '/&original',
-      name: '&original',
       component: Index,
       children: [
         {
+          name: '&original',
           path: '',
           components: {
             left: LeftNav,
@@ -242,10 +242,10 @@ export default new Router({
     },
     {
       path: '/search',
-      name: 'search',
       component: Index,
       children: [
         {
+          name: 'search',
           path: '',
           components: {
             left: LeftNav,
@@ -281,9 +281,9 @@ export default new Router({
     },
     {
       path: '/user',
-      name: 'user',
       component: Index,
       children: [{
+        name: 'user',
         path: 'name',
         components: {
           left: LeftNav,
@@ -403,10 +403,10 @@ export default new Router({
     },
     {
       path: '/topic',
-      name: 'topic',
       component: Index,
       children: [
         {
+          name: 'topic',
           path: '',
           components: {
             left: LeftNav,
@@ -442,10 +442,10 @@ export default new Router({
     },
     {
       path: '/video',
-      name: 'video',
       component: VideoIndex,
       children: [
         {
+          name: 'video',
           path: '',
           components: {
             left: LeftNav,
@@ -481,10 +481,10 @@ export default new Router({
     },
     {
       path: '/history',
-      name: 'history',
       component: VideoIndex,
       children: [
         {
+          name: 'history',
           path: '',
           components: {
             left: LeftNav,
@@ -520,11 +520,11 @@ export default new Router({
     },
     {
       path: '/fvideo',
-      name: 'fvideo',
       component: VideoIndex,
       children: [
         {
           path: '',
+          name: 'fvideo',
           components: {
             left: LeftNav,
             right: Video
@@ -613,10 +613,10 @@ export default new Router({
     },
     {
       path: '/newest',
-      name: 'newest',
       component: Index,
       children: [
         {
+          name: 'newest',
           path: '',
           components: {
             left: LeftNav,
@@ -654,10 +654,10 @@ export default new Router({
     },
     {
       path: '/special',
-      name: 'special',
       component: Index,
       children: [
         {
+          name: 'special',
           path: '',
           components: {
             left: LeftNav,
@@ -701,10 +701,10 @@ export default new Router({
     },
     {
       path: '/friend',
-      name: 'friend',
       component: Index,
       children: [
         {
+          name: 'friend',
           path: '',
           components: {
             left: LeftNav,
@@ -980,10 +980,10 @@ export default new Router({
     },
     {
       path: '/hot',
-      name: 'hot',
       component: Index,
       children: [
         {
+          name: 'hot',
           path: '',
           components: {
             left: LeftNav,
@@ -1019,10 +1019,10 @@ export default new Router({
     },
     {
       path: '/hotSearch',
-      name: 'hotSearch',
       component: Index,
       children: [
         {
+          name: 'hotSearch',
           path: '',
           components: {
             left: LeftNav,
